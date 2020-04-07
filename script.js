@@ -56,10 +56,28 @@ const theWord = function(word, inputLetterWords) {
   document.querySelector(".the_word").innerHTML = display.join(" ");
 };
 
-const guessLetter = function() {
+function beginTheGameWithPlayer() {
+  gameOver = false;
+  document.querySelector(".win").style.display = "none";
+  document.querySelector(".lose").style.display = "none";
+  document.querySelector("input").value = "";
+
+  word = wordPicker(wordList).split("");
+  document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;
+
+  tries = 0;
+  document.querySelector(".lives span").innerHTML = 5;
+
+  inputs = [];
+  theWord(word, inputs);
+  letters(word, inputs);
+}
+
+const guessLetter = function(event) {
   if (gameOver) {
     return;
   }
+
   const input1 = document.querySelector("input").value;
   document.querySelector("input").value = "";
 
@@ -84,27 +102,9 @@ const guessLetter = function() {
   }
 };
 
-function beginTheGameWithPlayer() {
-  gameOver = false;
-  document.querySelector(".win").style.display = "none";
-  document.querySelector(".lose").style.display = "none";
-  document.querySelector("input").value = "";
-
-  word = wordPicker(wordList).split("");
-  document.querySelector(".lose p span").innerHTML = `"${word.join("")}"`;
-
-  tries = 0;
-  document.querySelector(".lives span").innerHTML = 5;
-
-  inputs = [];
-  theWord(word, inputs);
-  letters(word, inputs);
-}
-
 document.querySelectorAll(".singleLetterButton").forEach(item => {
-  item.addEventListener("click", event => {
+  item.addEventListener("click", () => {
     const input1 = item.id;
-    const input2 = document.querySelector("input").value;
     document.querySelector("input").value = "";
 
     if (inputs.includes(input1) || input1 === "") {
@@ -129,18 +129,15 @@ document.querySelectorAll(".singleLetterButton").forEach(item => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".guess").addEventListener("click", guessLetter);
+  document.querySelector("input").addEventListener("keyup", event => {
+    if (event.keyCode === 13) {
+      return guessLetter();
+    }
+  });
   document
     .querySelector(".restart")
     .addEventListener("click", beginTheGameWithPlayer);
   beginTheGameWithPlayer();
 });
-
-const functions = {
-  wordPicker: wordPicker,
-  guessLetter: guessLetter,
-  theWord: theWord
-};
-
-// module.exports = functions;
