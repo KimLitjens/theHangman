@@ -101,37 +101,33 @@ function beginTheGameWithPlayer() {
   letters(word, inputs);
 }
 
-// const guessLetterByClick = function() {
-//   console.log("a is clicked");
-//   const input1 = "a";
-//   document.querySelector("input").value = "";
+document.querySelectorAll(".singleLetterButton").forEach(item => {
+  item.addEventListener("click", event => {
+    const input1 = item.id;
+    const input2 = document.querySelector("input").value;
+    document.querySelector("input").value = "";
 
-//   if (inputs.includes(input1) || input1 === "") {
-//     return;
-//   }
+    if (inputs.includes(input1) || input1 === "") {
+      return;
+    }
 
-//   if (!word.includes(input1)) {
-//     tries++;
+    if (!word.includes(input1)) {
+      tries++;
 
-//     document.querySelector(".lives span").innerHTML = 5 - tries;
-//   }
+      document.querySelector(".lives span").innerHTML = 5 - tries;
+    }
 
-//   inputs.push(input1);
-//   theWord(word, inputs);
-//   letters(word, inputs);
+    inputs.push(input1);
+    theWord(word, inputs);
+    letters(word, inputs);
 
-//   if (wordGuessed(word, inputs)) {
-//     winTheGame();
-//   } else if (tries >= 5) {
-//     loseGame();
-//   }
-// };
-// const btns = document.getElementById("a");
-// console.log(btns);
-// const btnsArr = Array.prototype.slice.call(btns);
-// console.log(btnsArr);
-
-// btns.addEventListener("click", guessLetterByClick);
+    if (wordGuessed(word, inputs)) {
+      winTheGame();
+    } else if (tries >= 5) {
+      loseGame();
+    }
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector(".guess").addEventListener("click", guessLetter);
@@ -147,4 +143,4 @@ const functions = {
   theWord: theWord
 };
 
-module.exports = functions;
+// module.exports = functions;
