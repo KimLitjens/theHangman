@@ -1,0 +1,67 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: "Lucida Sans";
+}
+
+header {
+  text-align: center;
+  margin: 20px 50px 100px 50px;
+  padding: 5px;
+  border-style: solid;
+  border-color: rgb(0, 134, 243);
+  border-radius: 20px;
+  background-color: rgb(209, 209, 209);
+  color: rgb(0, 0, 0);
+}
+
+header p {
+  font-size: small;
+}
+
+.win,
+.lose {
+  display: none;
+  text-align: center;
+  margin: 50px;
+}
+
+.win h2 {
+  color: red;
+}
+
+.lose h2 {
+  color: blue;
+}
+
+.stagePictures {
+  float: left;
+  height: auto;
+  width: auto;
+  margin-right: 50px;
+  border-style: solid;
+  border-color: rgb(0, 134, 243);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.allLetterButtons {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+}
+
+.singleLetterButton {
+  margin: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: rgb(102, 169, 196);
+  border-radius: 10px;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+}
+
+.guess,
+.restart {
+  font-size: 20px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangman</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Simple 'Hangman' Game</h1>
+      <p>[no people will actually be harmed during this game]</p>
+    </header>
+
+    <div class="win">
+      <h2>You won!</h2>
+      <img src="win.gif" />
+    </div>
+
+    <div class="lose">
+      <h2>You lost..</h2>
+      <img src="lose.gif" />
+      <p>The chosen word was: <span></span></p>
+    </div>
+
+    <div class="stagePictures">
+      <img src="stage0.png" />
+    </div>
+
+    <h2>Current word:</h2>
+    <div class="the_word">_ _ _ _ _</div>
+
+    <h3>Incorrectly guessed letters:</h3>
+    <div class="guessed_letters"></div>
+
+    <p class="lives">You have <span></span> tries remaining</p>
+
+    <input type="text" placeholder="Guess a letter" maxlength="1" />
+    <button class="guess">Guess</button>
+    <button class="restart">Restart</button>
+
+    <div class="allLetterButtons">
+      <button class="singleLetterButton" id="a">A</button>
+      <button class="singleLetterButton" id="b">B</button>
+      <button class="singleLetterButton" id="c">C</button>
+      <button class="singleLetterButton" id="d">D</button>
+      <button class="singleLetterButton" id="e">E</button>
+      <button class="singleLetterButton" id="f">F</button>
+      <button class="singleLetterButton" id="g">G</button>
+      <button class="singleLetterButton" id="h">H</button>
+      <button class="singleLetterButton" id="i">I</button>
+      <button class="singleLetterButton" id="j">J</button>
+      <button class="singleLetterButton" id="k">K</button>
+      <button class="singleLetterButton" id="l">L</button>
+      <button class="singleLetterButton" id="m">M</button>
+      <button class="singleLetterButton" id="n">N</button>
+      <button class="singleLetterButton" id="o">O</button>
+      <button class="singleLetterButton" id="p">P</button>
+      <button class="singleLetterButton" id="q">Q</button>
+      <button class="singleLetterButton" id="r">R</button>
+      <button class="singleLetterButton" id="s">S</button>
+      <button class="singleLetterButton" id="t">T</button>
+      <button class="singleLetterButton" id="u">U</button>
+      <button class="singleLetterButton" id="v">V</button>
+      <button class="singleLetterButton" id="w">W</button>
+      <button class="singleLetterButton" id="x">X</button>
+      <button class="singleLetterButton" id="y">Y</button>
+      <button class="singleLetterButton" id="z">Z</button>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
